@@ -9,17 +9,23 @@ class Vendedor(models.Model):
 
 class Venta(models.Model):
     vendedor = models.ForeignKey('AppTienda.Vendedor', on_delete=models.CASCADE)
-    producto = models.CharField(max_length=200)
+    producto = models.ForeignKey('AppTienda.Producto', on_delete=models.CASCADE)
     fecha = models.DateTimeField(default=timezone.now)
     cantidad = models.IntegerField()
     sucursal = models.ForeignKey('AppTienda.Sucursal', on_delete=models.CASCADE)
     comentario = models.TextField()
 
 class Oferta(models.Model):
-    producto = models.CharField(max_length=200)
+    producto = models.ForeignKey('AppTienda.Producto', on_delete=models.CASCADE)
     precio = models.IntegerField(max_length=10)
-    descuento = models.DecimalField(max_digits=3, decimal_places=2)
+    descuento = models.IntegerField()
 
 class Sucursal(models.Model):
     nombre = models.CharField(max_length=200)
     direccion = models.CharField(max_length=200)
+
+class Producto (models.Model):
+    nombre = models.CharField(max_length=200)
+    precio = models.IntegerField()
+    descripcion = models.TextField()
+    Sucursal = models.ManyToManyField('AppTienda.Sucursal')
