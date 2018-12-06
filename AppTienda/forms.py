@@ -11,4 +11,4 @@ class VentaForm(forms.ModelForm):
 
     class Meta:    
         model = Venta 
-        fields = ('vendedor','producto','fecha','cantidad','sucursal','comentario',) 
+        fields = ('vendedor','producto','fecha','cantidad','tienda','comentario',) 
