@@ -19,8 +19,6 @@ class Venta(models.Model):
     tienda = models.ForeignKey('AppTienda.Tienda', on_delete=models.CASCADE, default='1')
     comentario = models.TextField(blank=True, null=True)
     
-    def __str__(self):
-        return 'Venta: '+self.vendedor+' '+self.producto
 
 class Oferta(models.Model):
     producto = models.ForeignKey('AppTienda.Producto', on_delete=models.CASCADE)

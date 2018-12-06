@@ -21,6 +21,7 @@
                 </div>
             </nav>
             <form method="POST"> 
+                {% csrf_token %}
                 {{ form.as_p }} 
                 <button type='submit' class=" waves-effect waves-green btn" action="index""><i class="material-icons right " >send</i>Enviar</button>
             </form>
