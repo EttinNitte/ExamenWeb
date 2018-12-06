@@ -11,6 +11,12 @@ from .models import Vendedor
 
 usuarioLogeado = 0
 
+def logout(request):
+    global usuarioLogeado
+    usuarioLogeado=0
+    return redirect('login')
+
+
 def index(request):
     response = requests.get('https://mindicador.cl/api')
     data = response.json()
