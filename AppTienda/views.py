@@ -4,11 +4,13 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from  . import models
 from .forms import VentaForm,LoginForm
+from .models import Producto
 
 def index(request):
     response = requests.get('https://mindicador.cl/api')
     data = response.json()
-    return render(request,'index.html',{'dolar': data['dolar']['valor']})
+    productos = Producto.objects.all()
+    return render(request,'index.html',{'dolar': data['dolar']['valor'],'productos': productos})
 
 def login(request):
     form = LoginForm()
