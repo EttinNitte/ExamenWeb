@@ -66,7 +66,7 @@
                       <th>Descuento</th>
                     </tr>
                     {% for oferta in ofertas %}
-                    <tr> <th>{{ oferta.producto }}</th> <th>${{ oferta.precio }}</th><th>{{ oferta.descuento }}</th></tr>
+                    <tr> <th>{{ oferta.producto }}</th> <th>${{ oferta.precio }}</th><th>{{ oferta.descuento }}%</th></tr>
                     {% endfor %}
             </table>
         </div>
