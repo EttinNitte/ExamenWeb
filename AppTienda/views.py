@@ -45,7 +45,10 @@ def ventasRealizadas(request):
     if usuarioLogeado == 0:
         return redirect('login')
     ventas = Venta.objects.all().filter(vendedor = usuarioLogeado)
-    return render(request,'ventasRealizadas.html',{'dolar': data['dolar']['valor'],'ventas': ventas,'usuario': usuarioLogeado})
+    total = 0
+    for venta in ventas:
+        total = total + (venta.producto.precio * venta.cantidad)
+    return render(request,'ventasRealizadas.html',{'dolar': data['dolar']['valor'],'ventas': ventas,'usuario': usuarioLogeado,'total':total})
 
 def login(request):
     response = requests.get('https://mindicador.cl/api')

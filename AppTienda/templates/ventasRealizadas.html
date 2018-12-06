@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    
+
     <nav class="nav-extended teal ">
         <div class="nav-wrapper">
             <a href="index" class="brand-logo center">FalaPley</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-           
+
         </div>
         <div class="nav-content">
             <ul class="tabs tabs-transparent  hide-on-med-and-down">
@@ -26,51 +26,68 @@
                 <li class="tab"><a href="ventas_realizadas">Ventas realizadas</a></li>
                 <li class="tab"><a href="productos_tienda">Productos Tienda</a></li>
                 <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
-                <li class="tab"> Valor Dolar Hoy: {{dolar}}  &nbsp</li>
-                
+                <li class="tab"> Valor Dolar Hoy: {{dolar}} &nbsp</li>
+
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-            <li class="tab center"><a href="registro_venta">Realizar Venta</a></li>
-            <li class="tab center"><a href="ofertas_tienda">Ofertas Tienda</a></li>
-            <li class="tab center"><a href="ventas_realizadas">Ventas realizadas</a></li>
-            <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
-            <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
-            <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
+        <li class="tab center"><a href="registro_venta">Realizar Venta</a></li>
+        <li class="tab center"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+        <li class="tab center"><a href="ventas_realizadas">Ventas realizadas</a></li>
+        <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
+        <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
+        <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
     </ul>
     <div class="row">
-            
-        </div> s
+
+    </div> s
     <div class="container teal lighten-5">
-           
-        
+
+
         <div class="row">
-                    <div class="card teal darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title center">Ventas Realizadas</span>
-                        </div>
-                    </div>
+            <div class="card teal darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center">Ventas Realizadas</span>
+                </div>
+            </div>
         </div>
 
-        
-        <div>    
-        <table style="width:100%">
-                    <tr>
-                      <th>Vendedor</th>
-                      <th>Producto</th> 
-                      <th>Fecha</th>
-                      <th>Cantidad</th>
-                      <th>Comentario</th>
-                    </tr>
-                    {% for venta in ventas %}
-                    <tr> <th>{{ venta.vendedor }}</th> <th>{{ venta.producto }}</th><th>{{ venta.fecha }}</th><th>{{ venta.cantidad }}</th><th>{{ venta.comentario }}</th></tr>
-                    {% endfor %}
+
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <th>Vendedor</th>
+                    <th>Producto</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Comentario</th>
+                </tr>
+                {% for venta in ventas %}
+                <tr>
+                    <th>{{ venta.vendedor }}</th>
+                    <th>{{ venta.producto }}</th>
+                    <th>{{ venta.fecha }}</th>
+                    <th>{{ venta.cantidad }}</th>
+                    <th>{{ venta.comentario }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+            
+            <table style="width:100%">
+                <tr>
+                    <th>TOTAL VENTAS: $</th>
+                    <th>
+                        {{total}}
+                    </th>
+                </tr>
             </table>
         </div>
     </div>
-    
+
 
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
