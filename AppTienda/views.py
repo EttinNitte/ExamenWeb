@@ -75,6 +75,8 @@ def login(request):
     return render(request,'login.html', {'form': form})
 
 def registroVenta(request):
+    if usuarioLogeado == 0:
+        return redirect('login')
     response = requests.get('https://mindicador.cl/api')
     data = response.json()
     form = VentaForm()
