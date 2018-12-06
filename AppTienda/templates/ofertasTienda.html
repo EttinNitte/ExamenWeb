@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Formulario</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
+</head>
+
+<body>
+    
+    <nav class="nav-extended teal ">
+        <div class="nav-wrapper">
+            <a href="index" class="brand-logo center">FalaPley</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+           
+        </div>
+        <div class="nav-content">
+            <ul class="tabs tabs-transparent  hide-on-med-and-down">
+                <li class="tab"><a href="registro_venta">Realizar Venta</a></li>
+                <li class="tab"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+                <li class="tab"><a href="ventas_realizadas">Ventas realizadas</a></li>
+                <li class="tab"><a href="productos_tienda">Productos Tienda</a></li>
+                <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
+                <li class="tab"> Valor Dolar Hoy: {{dolar}}  &nbsp</li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+            <li class="tab center"><a href="registro_venta">Realizar Venta</a></li>
+            <li class="tab center"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+            <li class="tab center"><a href="ventas_realizadas">Ventas realizadas</a></li>
+            <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
+            <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
+            <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
+    </ul>
+    <div class="row">
+            
+        </div> s
+    <div class="container teal lighten-5">
+           
+        
+        <div class="row">
+                    <div class="card teal darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title center">Ofertas Tienda</span>
+                        </div>
+                    </div>
+        </div>
+
+        
+        <div>    
+        <table style="width:100%">
+                    <tr>
+                      <th>Producto</th>
+                      <th>Precio</th> 
+                      <th>Descuento</th>
+                    </tr>
+                    {% for oferta in ofertas %}
+                    <tr> <th>{{ oferta.producto }}</th> <th>${{ oferta.precio }}</th><th>{{ oferta.descuento }}</th></tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy',
+                selectMonths: true,
+                selectYears: 120
+            })
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+        $(document).change(function () {
+            $('select').formSelect();
+        });
+
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
+        $('.carousel').carousel({});
+        setTimeout(autoplay, 4500);
+
+        function autoplay() {
+            $('.carousel').carousel('next');
+            setTimeout(autoplay, 4500);
+        };
+        $('.carousel.carousel-slider').carousel({
+            fullWidth: true
+        });
+        $(document).ready(function () {
+            $('.materialboxed').materialbox();
+        });
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>

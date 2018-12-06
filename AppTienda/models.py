@@ -24,9 +24,9 @@ class Oferta(models.Model):
     producto = models.ForeignKey('AppTienda.Producto', on_delete=models.CASCADE)
     precio = models.IntegerField(max_length=10)
     descuento = models.IntegerField()
-    
+    Tienda = models.ForeignKey('AppTienda.Tienda',blank=True, null=True, on_delete=models.CASCADE)
     def __str__(self):
-        return self.producto +' - '+ self.descuento+'%'
+        return self.producto.nombre +' Oferta '+self.Tienda.nombre
 
 class Tienda(models.Model):
     nombre = models.CharField(max_length=200)

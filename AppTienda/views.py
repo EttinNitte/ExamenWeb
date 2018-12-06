@@ -26,10 +26,8 @@ def productosTienda(request):
     global usuarioLogeado
     if usuarioLogeado == 0:
         return redirect('login')
-    print(usuarioLogeado)
-    #print(usuarioLogeado.Tienda)
-    productos = Producto.objects.all()#.filter(Tienda=usuarioLogeado.Tienda)
-    return render(request,'productosTienda.html',{'dolar': data['dolar']['valor'],'productos': productos})
+    productos = Producto.objects.all().filter(Tienda=usuarioLogeado.Tienda)
+    return render(request,'productosTienda.html',{'dolar': data['dolar']['valor'],'productos': productos,'usuario': usuarioLogeado})
 
 def ofertasTienda(request):
     response = requests.get('https://mindicador.cl/api')
@@ -37,8 +35,8 @@ def ofertasTienda(request):
     global usuarioLogeado
     if usuarioLogeado == 0:
         return redirect('login')
-    ofertas = Oferta.objects.all()
-    return render(request,'ofertasTienda.html',{'dolar': data['dolar']['valor'],'ofertas': ofertas})
+    ofertas = Oferta.objects.all().filter(Tienda=usuarioLogeado.Tienda)
+    return render(request,'ofertasTienda.html',{'dolar': data['dolar']['valor'],'ofertas': ofertas,'usuario': usuarioLogeado})
 
 def ventasRealizadas(request):
     response = requests.get('https://mindicador.cl/api')
@@ -47,7 +45,7 @@ def ventasRealizadas(request):
     if usuarioLogeado == 0:
         return redirect('login')
     ventas = Venta.objects.all().filter(vendedor = usuarioLogeado)
-    return render(request,'ventasRealizadas.html',{'dolar': data['dolar']['valor'],'ventas': ventas})
+    return render(request,'ventasRealizadas.html',{'dolar': data['dolar']['valor'],'ventas': ventas,'usuario': usuarioLogeado})
 
 def login(request):
     response = requests.get('https://mindicador.cl/api')
@@ -61,7 +59,7 @@ def login(request):
             usuarioValidado = Vendedor.objects.all().filter(usuario=data.get("usuario"),contraseña=data.get("contraseña"))
             if usuarioValidado.count() == 1:
                 global usuarioLogeado
-                usuarioLogeado = usuarioValidado
+                usuarioLogeado = usuarioValidado.first()
                 return redirect('index')
     else:
         form = LoginForm()
@@ -79,4 +77,4 @@ def registroVenta(request):
             return redirect('index')
     else:
         form = VentaForm()
-    return render(request, 'registroVenta.html', {'form': form,'dolar': data['dolar']['valor']})
+    return render(request, 'registroVenta.html', {'form': form,'dolar': data['dolar']['valor'],'usuario': usuarioLogeado})

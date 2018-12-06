@@ -9,31 +9,34 @@
             <!--Import materialize.css-->
             <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
     </head>
+    <body>
     <nav class="nav-extended teal ">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">FalaPley</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-               
-            </div>
-            <div class="nav-content">
-                <ul class="tabs tabs-transparent  hide-on-med-and-down">
-                    <li class="tab"><a href="registro_venta">Realizar Venta</a></li>
-                    <li class="tab"><a href="ofertas_tienda">Ofertas Tienda</a></li>
-                    <li class="tab"><a href="ventas_realizadas">Ventas realizadas</a></li>
-                    <li class="tab"><a href="productos_tienda">Productos Tienda</a></li>
-                    <li class="tab">Valor Dolar Hoy: {{dolar}}</li>
-                    
-                </ul>
-            </div>
-        </nav>
-    
-        <ul class="sidenav" id="mobile-demo">
-                <li class="tab center"><a href="registro_venta">Realizar Venta</a></li>
-                <li class="tab center"><a href="ofertas_tienda">Ofertas Tienda</a></li>
-                <li class="tab center"><a href="ventas_realizadas">Ventas realizadas</a></li>
-                <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
-                <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
-        </ul>
+        <div class="nav-wrapper">
+            <a href="index" class="brand-logo center">FalaPley</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+           
+        </div>
+        <div class="nav-content">
+            <ul class="tabs tabs-transparent  hide-on-med-and-down">
+                <li class="tab"><a href="registro_venta">Realizar Venta</a></li>
+                <li class="tab"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+                <li class="tab"><a href="ventas_realizadas">Ventas realizadas</a></li>
+                <li class="tab"><a href="productos_tienda">Productos Tienda</a></li>
+                <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
+                <li class="tab"> Valor Dolar Hoy: {{dolar}}  &nbsp</li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+            <li class="tab center"><a href="registro_venta">Realizar Venta</a></li>
+            <li class="tab center"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+            <li class="tab center"><a href="ventas_realizadas">Ventas realizadas</a></li>
+            <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
+            <li class="tab">Bienvenido, {{usuario}} &nbsp</li>
+            <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
+    </ul>
 
         <div class = "container teal lighten-5">
                 <div class="card teal darken-1">
@@ -94,5 +97,6 @@
                 $('.sidenav').sidenav();
             });
         </script>
+        </body>
 </html>
 
