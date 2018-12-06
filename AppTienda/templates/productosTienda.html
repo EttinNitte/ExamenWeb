@@ -38,7 +38,34 @@
             <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
             <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
     </ul>
+    <div class="row">
+            
+        </div> s
+    <div class="container teal lighten-5">
+           
+        
+        <div class="row">
+                    <div class="card teal darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title center">Productos Tienda</span>
+                        </div>
+                    </div>
+        </div>
 
+        
+        <div>    
+        <table style="width:100%">
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Precio</th> 
+                      <th>Descripcion</th>
+                    </tr>
+                    {% for producto in productos %}
+                    <tr> <th>{{ producto.nombre }}</th> <th>${{ producto.precio }}</th><th>{{ producto.descripcion }}</th></tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
     
 
 

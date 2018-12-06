@@ -9,69 +9,90 @@
             <!--Import materialize.css-->
             <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
     </head>
-    <body class="teal lighten-5">
-           
+    <nav class="nav-extended teal ">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">FalaPley</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+               
+            </div>
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent  hide-on-med-and-down">
+                    <li class="tab"><a href="registro_venta">Realizar Venta</a></li>
+                    <li class="tab"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+                    <li class="tab"><a href="ventas_realizadas">Ventas realizadas</a></li>
+                    <li class="tab"><a href="productos_tienda">Productos Tienda</a></li>
+                    <li class="tab">Valor Dolar Hoy: {{dolar}}</li>
+                    
+                </ul>
+            </div>
+        </nav>
+    
+        <ul class="sidenav" id="mobile-demo">
+                <li class="tab center"><a href="registro_venta">Realizar Venta</a></li>
+                <li class="tab center"><a href="ofertas_tienda">Ofertas Tienda</a></li>
+                <li class="tab center"><a href="ventas_realizadas">Ventas realizadas</a></li>
+                <li class="tab center"><a href="productos_tienda">Productos Tienda</a></li>
+                <li class="tab center">Valor Dolar Hoy: {{dolar}}</li>
+        </ul>
+
         <div class = "container teal lighten-5">
-            <nav>
-                <div class="nav-wrapper teal">
-                    <a href="index" class="brand-logo">FalaPley</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="index">Volver</a></li>
-                    </ul>
+                <div class="card teal darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title center">Ventas</span>
+                        </div>
                 </div>
-            </nav>
+            
             <form method="POST"> 
                 {% csrf_token %}
                 {{ form.as_p }} 
                 <button type='submit' class=" waves-effect waves-green btn" action="index""><i class="material-icons right " >send</i>Enviar</button>
             </form>
         </div>
-       
-        <footer>
-            <!---->
-        </footer>
+    
+        
+    
+    
         <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
-                $(document).ready(function(){
+            $(document).ready(function () {
                 $('.datepicker').datepicker({
-                    format:'dd-mm-yyyy',
+                    format: 'dd-mm-yyyy',
                     selectMonths: true,
-                    selectYears: 120 
-                    })
-                });
-            </script> 
-            <script> 
-                $(document).ready(function(){
+                    selectYears: 120
+                })
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
                 $('select').formSelect();
-                }); 
-                $(document).change(function(){
+            });
+            $(document).change(function () {
                 $('select').formSelect();
-                });
-                                    
-                $(document).ready(function(){
+            });
+    
+            $(document).ready(function () {
                 $('.sidenav').sidenav();
-                });
-                $(document).ready(function(){
+            });
+            $(document).ready(function () {
                 $('.modal').modal();
-                });
-                $('.carousel').carousel({  
-                });
-                setTimeout(autoplay, 4500);
-                function autoplay() {
+            });
+            $('.carousel').carousel({});
+            setTimeout(autoplay, 4500);
+    
+            function autoplay() {
                 $('.carousel').carousel('next');
                 setTimeout(autoplay, 4500);
-                };
-                $('.carousel.carousel-slider').carousel({
+            };
+            $('.carousel.carousel-slider').carousel({
                 fullWidth: true
-                });
-                $(document).ready(function(){
+            });
+            $(document).ready(function () {
                 $('.materialboxed').materialbox();
-                });
-                $(document).ready(function() {
+            });
+            $(document).ready(function () {
                 $('.sidenav').sidenav();
-                });
-                
-            </script> 
-    </body>
+            });
+        </script>
 </html>
+
