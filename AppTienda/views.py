@@ -6,7 +6,9 @@ from  . import models
 from .forms import VentaForm,LoginForm
 
 def index(request):
-    return render(request,'index.html')
+    response = requests.get('https://mindicador.cl/api')
+    data = response.json()
+    return render(request,'index.html',{'dolar': data['dolar']['valor']})
 
 def login(request):
     form = LoginForm()
